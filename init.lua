@@ -26,16 +26,18 @@ require("lazy").setup({
   spec = {
 	  {
   "vhyrro/luarocks.nvim",
-  priority = 1000, -- Very high priority is required, luarocks.nvim should run as the first plugin in your config.
   config = true,
+},
+{
+    "williamboman/mason.nvim"
 }
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { "habamax" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true; notify = false; },
 })
-
+require("mason").setup()
 vim.wo.relativenumber=true
 vim.opt.swapfile = false
