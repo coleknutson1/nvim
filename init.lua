@@ -38,3 +38,4 @@ require("lazy").setup({
 })
 
 vim.wo.relativenumber=true
+vim.opt.swapfile = false
