@@ -1,6 +1,6 @@
 vim.cmd.colorscheme("retrobox")
 vim.g.mapleader = ' '
-vim.wo.number = true
+vim.wo.relativenumber = true
 vim.opt.swapfile = false
 vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 	pattern = {"*.c", "*.h"},
@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 			local file_name = vim.fn.expand('%:t:r')
 
 			-- Create the compilation command
-			local compile_cmd = string.format('gcc -o %s %s', file_name, file)
+			local compile_cmd = string.format('zig -cc %s %s', file_name, file)
 
 			-- Create a new terminal buffer and compile
 			vim.cmd('botright new')
@@ -32,4 +32,6 @@ vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter"}, {
 		end, { noremap = true, silent = true, desc = 'Compile and run C program' })
 	end
 })
-
+if string.match(vim.loop.os_uname().sysname, "Window") then
+	print("We are in Windows!")
+end
