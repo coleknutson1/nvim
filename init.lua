@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("retrobox")
+vim.cmd("colorscheme habamax")
 vim.g.mapleader = ' '
 vim.wo.relativenumber = true
 vim.opt.swapfile = false
